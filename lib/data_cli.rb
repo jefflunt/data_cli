@@ -1,4 +1,13 @@
 module DataCLI
+  def self.elipsis(msg, delay, n)
+    n.times do |i|
+      dots = (i % 3) + 1
+      spaces = 3 - dots
+      print "\r#{msg}#{'.' * dots}#{' ' * spaces}"
+      sleep delay
+    end
+  end
+
   def self.bar(p, width=40)
     p = 0 if p.nan?
     bars = (p * 40).to_i.clamp(0, 40)
